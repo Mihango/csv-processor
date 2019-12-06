@@ -1,8 +1,8 @@
 package com.tech.services;
 
-import ke.tra.scb.cashcollection.configs.FileStorageProperties;
-import ke.tra.scb.cashcollection.utils.exceptions.FileStorageException;
-import ke.tra.scb.cashcollection.utils.exceptions.MyFileNotFoundException;
+import com.tech.config.FileStorageProperties;
+import com.tech.utils.exceptions.FileStorageException;
+import com.tech.utils.exceptions.MyFileNotFoundException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
