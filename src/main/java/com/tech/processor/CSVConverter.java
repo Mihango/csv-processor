@@ -6,5 +6,5 @@ import java.util.stream.Stream;
 
 public interface CSVConverter<T> {
     Path convertObjectsToCsv(List<T> objects);
-    Stream<T> processCsv(Path csvFile)  throws Exception;
+    List<T> processCsv(Path csvFile)  throws Exception;
 }

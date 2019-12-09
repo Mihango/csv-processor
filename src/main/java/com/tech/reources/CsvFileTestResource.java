@@ -1,6 +1,6 @@
 package com.tech.reources;
 
-import com.tech.services.CsvService;
+import com.tech.services.PersonService;
 import com.tech.services.FileStorageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,17 +12,16 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/csv")
 public class CsvFileTestResource {
 
-    private CsvService csvService;
+    private PersonService personService;
     private FileStorageService fileStorageService;
 
-    public CsvFileTestResource(CsvService csvService, FileStorageService fileStorageService) {
-        this.csvService = csvService;
+    public CsvFileTestResource(PersonService personService, FileStorageService fileStorageService) {
+        this.personService = personService;
         this.fileStorageService = fileStorageService;
     }
 
     @PostMapping("/upload")
-    private ResponseEntity uploadFile(MultipartFile file) {
-        csvService.processCsvFile(fileStorageService.storeFile(file));
-        return ResponseEntity.ok().build();
+    private ResponseEntity uploadFile(MultipartFile file) throws Exception {
+        return ResponseEntity.ok(personService.processCsvFile(fileStorageService.storeFile(file)));
     }
 }
